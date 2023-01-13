@@ -6,31 +6,36 @@
 //
 
 import XCTest
-@testable import CarCustomiser
 
 class CarCustomiserTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testNewCarGivesACarWithAllAttributesSet() {
+        // arrange
+        // act
+        let car = Car(make: "Porsche", model: "911", topSpeed: 130, acceleration: 6.8, handling: 2)
+        // assert
+        XCTAssertEqual(car.make, "Porsche")
+        XCTAssertEqual(car.model, "911")
+        XCTAssertEqual(car.topSpeed, 130)
+        XCTAssertEqual(car.acceleration, 6.8)
+        XCTAssertEqual(car.handling, 2)
     }
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func testDisplayStatsMethodReturnAStringOfCorrectFormatAndContent() {
+        // arrange
+        let expected = """
+Make: Porsche
+Model: 911
+Top Speed: 130mph
+Acceleration (0-60): 6.8s
+Handling: 2
+"""
+        
+        // act
+        let car = Car(make: "Porsche", model: "911", topSpeed: 130, acceleration: 6.8, handling: 2)
+        let displayedStats: String = car.displayStats()
+        
+        // assert
+        XCTAssertEqual(displayedStats, expected)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
 }

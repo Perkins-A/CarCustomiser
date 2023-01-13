@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280C502E2971686E00CE422C /* StarterCars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 280C502D2971686E00CE422C /* StarterCars.swift */; };
 		282580842970A9D500FFD5B8 /* CarCustomiserApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282580832970A9D500FFD5B8 /* CarCustomiserApp.swift */; };
 		282580862970A9D500FFD5B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282580852970A9D500FFD5B8 /* ContentView.swift */; };
 		282580882970A9D700FFD5B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 282580872970A9D700FFD5B8 /* Assets.xcassets */; };
@@ -14,6 +15,8 @@
 		282580952970A9D700FFD5B8 /* CarCustomiserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282580942970A9D700FFD5B8 /* CarCustomiserTests.swift */; };
 		2825809F2970A9D700FFD5B8 /* CarCustomiserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2825809E2970A9D700FFD5B8 /* CarCustomiserUITests.swift */; };
 		282580A12970A9D700FFD5B8 /* CarCustomiserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282580A02970A9D700FFD5B8 /* CarCustomiserUITestsLaunchTests.swift */; };
+		282580AE2970AC8E00FFD5B8 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282580AD2970AC8E00FFD5B8 /* Car.swift */; };
+		282580AF2970ACDF00FFD5B8 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282580AD2970AC8E00FFD5B8 /* Car.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		280C502D2971686E00CE422C /* StarterCars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarterCars.swift; sourceTree = "<group>"; };
 		282580802970A9D500FFD5B8 /* CarCustomiser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarCustomiser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		282580832970A9D500FFD5B8 /* CarCustomiserApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCustomiserApp.swift; sourceTree = "<group>"; };
 		282580852970A9D500FFD5B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -44,6 +48,7 @@
 		2825809A2970A9D700FFD5B8 /* CarCustomiserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarCustomiserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2825809E2970A9D700FFD5B8 /* CarCustomiserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCustomiserUITests.swift; sourceTree = "<group>"; };
 		282580A02970A9D700FFD5B8 /* CarCustomiserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCustomiserUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		282580AD2970AC8E00FFD5B8 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +103,8 @@
 				282580852970A9D500FFD5B8 /* ContentView.swift */,
 				282580872970A9D700FFD5B8 /* Assets.xcassets */,
 				282580892970A9D700FFD5B8 /* Preview Content */,
+				282580AD2970AC8E00FFD5B8 /* Car.swift */,
+				280C502D2971686E00CE422C /* StarterCars.swift */,
 			);
 			path = CarCustomiser;
 			sourceTree = "<group>";
@@ -259,6 +266,8 @@
 			files = (
 				282580862970A9D500FFD5B8 /* ContentView.swift in Sources */,
 				282580842970A9D500FFD5B8 /* CarCustomiserApp.swift in Sources */,
+				280C502E2971686E00CE422C /* StarterCars.swift in Sources */,
+				282580AE2970AC8E00FFD5B8 /* Car.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				282580AF2970ACDF00FFD5B8 /* Car.swift in Sources */,
 				282580952970A9D700FFD5B8 /* CarCustomiserTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
