@@ -20,6 +20,7 @@ struct ContentView: View {
     @State private var tiresPackage = false
     @State private var brakesPackage = false
     @State private var gearboxPackage = false
+    @State private var remainingFunds = 1000
     
     var body: some View {
         let exhaustPackageBinding = Binding<Bool> (
@@ -28,8 +29,10 @@ struct ContentView: View {
                 self.exhaustPackage = newValue
                 if newValue == true {
                     starterCars.cars[selectedCar].topSpeed += 5
+                    remainingFunds -= 500
                 } else {
                     starterCars.cars[selectedCar].topSpeed -= 5
+                    remainingFunds += 500
                 }
             }
         )
@@ -40,9 +43,11 @@ struct ContentView: View {
                 if newValue == true {
                     starterCars.cars[selectedCar].acceleration -= 0.1
                     starterCars.cars[selectedCar].handling += 1
+                    remainingFunds -= 500
                 } else {
                     starterCars.cars[selectedCar].acceleration += 0.1
                     starterCars.cars[selectedCar].handling -= 1
+                    remainingFunds += 500
                 }
             }
         )
@@ -52,8 +57,10 @@ struct ContentView: View {
                 self.brakesPackage = newValue
                 if newValue == true {
                     starterCars.cars[selectedCar].handling += 1
+                    remainingFunds -= 500
                 } else {
                     starterCars.cars[selectedCar].handling -= 1
+                    remainingFunds += 500
                 }
             }
         )
@@ -63,27 +70,48 @@ struct ContentView: View {
                 self.gearboxPackage = newValue
                 if newValue == true {
                     starterCars.cars[selectedCar].acceleration -= 0.2
+                    remainingFunds -= 1000
                 } else {
                     starterCars.cars[selectedCar].acceleration += 0.2
+                    remainingFunds += 1000
                 }
             }
         )
-        Form {
-            VStack(alignment: .leading, spacing: 20) {
-                Text("\(starterCars.cars[selectedCar].displayStats())")
-                Button("Next Car", action: {
-                    selectedCar += 1
-                })
+        VStack {
+            Form {
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("\(starterCars.cars[selectedCar].displayStats())")
+                    Button("Next Car", action: {
+                        resetDisplay()
+                        selectedCar += 1
+                    })
+                }
+                Section {
+                    Toggle("Exhaust Package (Cost: 500)", isOn: exhaustPackageBinding)
+                        .disabled(remainingFunds < 500 && !exhaustPackage)
+                    Toggle("Tires Package (Cost: 500)", isOn: tiresPackageBinding)
+                        .disabled(remainingFunds < 500 && !tiresPackage)
+                    Toggle("Brakes Package (Cost: 500)", isOn: brakesPackageBinding)
+                        .disabled(remainingFunds < 500 && !brakesPackage)
+                    Toggle("Gearbox Package (Cost: 1000)", isOn: gearboxPackageBinding)
+                        .disabled(remainingFunds < 1000 && !gearboxPackage)
+                }
             }
-            Section {
-                Toggle("Exhaust Prackage", isOn: exhaustPackageBinding)
-                Toggle("Tires Package", isOn: tiresPackageBinding)
-                Toggle("Brakes Prackage", isOn: brakesPackageBinding)
-                Toggle("Gearbox Prackage", isOn: gearboxPackageBinding)
-            }
-
+            Text("Remaining Funds: \(remainingFunds)")
+                .baselineOffset(20)
+            
         }
     }
+    
+    func resetDisplay() {
+        remainingFunds = 1000
+        exhaustPackage = false
+        tiresPackage = false
+        brakesPackage = false
+        gearboxPackage = false
+        starterCars = StarterCars()
+    }
+        
 }
 
 struct ContentView_Previews: PreviewProvider {
